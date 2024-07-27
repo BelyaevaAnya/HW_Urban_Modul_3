@@ -27,7 +27,7 @@ def send_email(message, recipient, sender=None):
         recipient.index('@')
         flag_wrng_end_mail &= recipient.endswith(end_mail_lst)
         if not flag_wrng_end_mail:
-            raise ValueError('Work with Positive Numbers Only')
+            raise ValueError('Работаем с почтами, которые оканчиваются только на  ".com", ".ru" и ".net"')
     except ValueError:
         print(f'Невозможно отправить письмо с адреса {sender} на адрес {recipient}')
     else:
