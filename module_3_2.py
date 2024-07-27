@@ -15,13 +15,11 @@
 end_mail_lst = ('.com', '.ru', '.net')
 
 
-def send_email(message, recipient, sender=None):
+def send_email(message, recipient, sender='university.help@gmail.com'):
     # проверка на "@" или нет оканчания на ".com"/".ru"/".net"
     try:
         flag_wrng_end_mail = True
-        if sender is None:
-            sender = 'university.help@gmail.com'
-        else:
+        if sender != 'university.help@gmail.com':
             sender.index('@')
             flag_wrng_end_mail &= sender.endswith(end_mail_lst)
         recipient.index('@')
