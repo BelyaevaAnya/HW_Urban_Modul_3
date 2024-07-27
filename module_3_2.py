@@ -16,7 +16,7 @@ end_mail_lst = ('.com', '.ru', '.net')
 
 
 def send_email(message, recipient, sender='university.help@gmail.com'):
-    # проверка на "@" или нет оканчания на ".com"/".ru"/".net"
+    # проверка на "@" или нет окончания на ".com"/".ru"/".net"
     try:
         flag_wrng_end_mail = True
         if sender != 'university.help@gmail.com':
