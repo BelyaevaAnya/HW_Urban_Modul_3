@@ -50,34 +50,35 @@ def calculate_structure_sum_1(*data):
 # использует для определения типа функции непосредственно типов
 
 def calculate_structure_sum_2(*data):
-  """
-  Функция обрабатывает поступающую в нее струтуру *data и считает
-    ее сумму элементов(для str используется длинна str)
-  :param data: *data- структура состоящая из списков, множеств, кортежей,
-     словарей и переменных с типом данных str и int(boolean и float функцией не предусмотрены)
-  :return: summ_of_elements(int)-сумма элементов структуры
-  """
-  summ = 0
-  for items in data:
-      match (items):
-          case list():
-              for element in items:
-                  summ += calculate_structure_sum_2(element)
-          case tuple():
-              for element in items:
-                  summ += calculate_structure_sum_2(element)
-          case set():
-              for element in items:
-                  summ += calculate_structure_sum_2(element)
-          case dict():
-              for key, value in items.items():
-                  summ += calculate_structure_sum_2(key, value)
-          case str():
-              summ += len(items)
-          case int():
-              summ += items
-      continue
-  return summ
+    """
+    Функция обрабатывает поступающую в нее струтуру *data и считает
+      ее сумму элементов(для str используется длинна str)
+    :param data: *data- структура состоящая из списков, множеств, кортежей,
+       словарей и переменных с типом данных str и int(boolean и float функцией не предусмотрены)
+    :return: summ_of_elements(int)-сумма элементов структуры
+    """
+    summ = 0
+    for items in data:
+        match (items):
+            case list():
+                for element in items:
+                    summ += calculate_structure_sum_2(element)
+            case tuple():
+                for element in items:
+                    summ += calculate_structure_sum_2(element)
+            case set():
+                for element in items:
+                    summ += calculate_structure_sum_2(element)
+            case dict():
+                for key, value in items.items():
+                    summ += calculate_structure_sum_2(key, value)
+            case str():
+                summ += len(items)
+            case int():
+                summ += items
+        continue
+    return summ
+
 
 print(help(calculate_structure_sum_1))
 print(help(calculate_structure_sum_2))
